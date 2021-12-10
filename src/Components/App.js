@@ -4,6 +4,7 @@ import WorkoutControl from './Workout/WorkoutControl'
 import Footer from './Footer/Footer'
 import Calendar from './Calendar/Calendar'
 import Blog from './Blog/Blog'
+import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 
@@ -11,8 +12,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 function App() {
   return (
     <Router>
-    <div className="container">
       <Header />
+    <div className="container">
       <Switch>
         <Route exact path="/">
           <WorkoutControl />

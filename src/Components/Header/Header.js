@@ -13,7 +13,7 @@ export default function Header() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               <Link className="nav-link" to="/">Workouts <span className="sr-only"></span></Link>
             </li>
@@ -25,6 +25,9 @@ export default function Header() {
             </li>
             {/* <li className="nav-item">
               <Link className="nav-link disabled" to="#">Meal Plan</Link>
+            </li> */}
+            {/* <li className="nav-item">
+              <Link className="nav-link disabled" to="#">Create User</Link>
             </li> */}
           </ul>
         </div>
