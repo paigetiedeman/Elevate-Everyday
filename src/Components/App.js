@@ -33,7 +33,7 @@ function App() {
           <WorkoutControl />
           {users.map((user) => {
       return <div><h1>Welcome {user.email}!</h1></div>;
-    })}
+        })}
         </Route>
         <Route path="/calendar">
           <Calendar />
