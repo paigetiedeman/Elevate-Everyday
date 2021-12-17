@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+
+.formButton {
+  display: flex;
+  justify-content: center;
+}
