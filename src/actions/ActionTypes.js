@@ -1,0 +1,2 @@
+export const DELETE_WORKOUT = 'DELETE_WORKOUT';
+export const SEE_WORKOUTS = 'SEE_WORKOUTS';

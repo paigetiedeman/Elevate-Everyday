@@ -4,12 +4,21 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import App from './Components/App';
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers/index';
+
+const store = createStore(rootReducer);
+
+store.subscribe(() => 
+  console.log(store.getState())
+);
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
