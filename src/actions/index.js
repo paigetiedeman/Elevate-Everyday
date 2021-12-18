@@ -1,7 +1,7 @@
 import * as c from './ActionTypes';
 
-export const seeWorkouts = () => ({
-  type: c.SEE_WORKOUTS
+export const toggleForm = () => ({
+  type: c.TOGGLE_FORM
 });
 
 export const deleteWorkout = () => ({

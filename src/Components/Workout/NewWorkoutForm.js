@@ -77,7 +77,7 @@ export default function ReusableForm() {
           <label>Equipment Needed</label>
           <input type="text" name="equipment" placeholder="Mat" />
         </Form.Field>
-        <Form.Input label="Image" type="text" placeholder="https://" />
+        <Form.Input label="Image" type="text" placeholder="https://" name="img"/>
         <Form.TextArea
           label="Description"
           name="description"

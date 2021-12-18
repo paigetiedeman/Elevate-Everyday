@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from './Header/Header'
 import WorkoutControl from './Workout/WorkoutControl'
-import ReusableForm from './Workout/NewWorkoutForm'
 import Footer from './Footer/Footer'
 import Calendar from './Calendar/Calendar'
 import Blog from './Blog/Blog'
@@ -31,8 +30,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/forgot-password" component={ForgotPassword} />
             <Route exact path="/">
-              {/* <WorkoutControl /> */}
-              <ReusableForm />
+              <WorkoutControl />
             </Route>
             <Route path="/calendar">
               <Calendar />

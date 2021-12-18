@@ -1,2 +1,2 @@
 export const DELETE_WORKOUT = 'DELETE_WORKOUT';
-export const SEE_WORKOUTS = 'SEE_WORKOUTS';
+export const TOGGLE_FORM = 'TOGGLE_FORM';
