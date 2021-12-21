@@ -97,8 +97,8 @@ export default function NewWorkoutForm(props) {
           name="img"
         />
         <Form.TextArea
-          label="Description"
-          name="description"
+          label="Details"
+          name="details"
           placeholder="4X20 plyo lunges, 4x20 elevated plié squats..."
         />
         <Button type="submit" color="teal">
