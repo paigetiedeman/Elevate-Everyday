@@ -4,23 +4,25 @@ import WorkoutControl from './Workout/WorkoutControl'
 import Footer from './Footer/Footer'
 import Calendar from './Calendar/Calendar'
 import Blog from './Blog/Blog'
-import SignUp from './Authentication/SignUp'
-import Login from './Authentication/Login'
-import Profile from './Authentication/Profile'
-import UpdateProfile from './Authentication/UpdateProfile'
-import PrivateRoute from './Authentication/PrivateRoute'
-import ForgotPassword from './Authentication/ForgotPassword'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { AuthProvider } from '../contexts/AuthContext';
-import { Container } from "react-bootstrap"
 import './App.css';
+
+// WIP: Authentication
+import SignUp from './Authentication/SignUp'
+// import Login from './Authentication/Login'
+// import Profile from './Authentication/Profile'
+// import UpdateProfile from './Authentication/UpdateProfile'
+// import PrivateRoute from './Authentication/PrivateRoute'
+// import ForgotPassword from './Authentication/ForgotPassword'
+// import { AuthProvider } from '../contexts/AuthContext';
+// import { Container } from "react-bootstrap"
 
 function App() {
 
   return (
     <Router>
         <Header />
-        <AuthProvider>
+        {/* <AuthProvider>
           <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}> 
           <div className="w-100" style={{ maxWidth: "400px" }}>
           <Switch>
@@ -29,9 +31,16 @@ function App() {
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />
           <Route path="/forgot-password" component={ForgotPassword} />
-            
-            <Route exact path="/">
+          </Switch>
+          </div>
+        </Container>
+      </AuthProvider> */}
+            <Switch>
+            <Route path="/">
               <WorkoutControl />
+            </Route>
+            <Route path="/signup">
+              <SignUp />
             </Route>
             <Route path="/calendar">
               <Calendar />
@@ -39,11 +48,8 @@ function App() {
             <Route path="/blog">
               <Blog />
             </Route>
-          </Switch>
-          </div>
+            </Switch>
           <Footer />
-        </Container>
-      </AuthProvider>
     </Router>
   );
 }

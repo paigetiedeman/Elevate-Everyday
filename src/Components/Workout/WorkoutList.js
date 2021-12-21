@@ -1,7 +1,7 @@
 import React from 'react';
 import Workout from './Workout';
 import PropTypes from 'prop-types';
-import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
+import { useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
 
 export default function WorkoutList(props) {
@@ -13,11 +13,11 @@ export default function WorkoutList(props) {
   const workouts = useSelector(state => state.firestore.ordered.workouts);
 
     return (
-      <React.Fragment>
+      <>
         <hr/>
         {workouts.map((workout) => {
           return <Workout
-            whenWorkoutClicked = { props.onWorkoutClick }
+            whenWorkoutClicked = { props.onWorkoutSelection }
             name={workout.name}
             duration={workout.duration}
             intensity={workout.intensity}
@@ -28,11 +28,11 @@ export default function WorkoutList(props) {
             id={workout.id}
             key={workout.id}/>
         })}
-      </React.Fragment>
+      </>
     );
 
 }
 
 WorkoutList.propTypes = {
-  onWorkoutClick: PropTypes.func
+  onWorkoutSelection: PropTypes.func,
 }

@@ -9,10 +9,13 @@ import PropTypes from 'prop-types';
 import { withFirestore, isLoaded } from 'react-redux-firebase';
 import { Button } from 'semantic-ui-react';
 import { getAuth } from "firebase/auth";
+// import { auth } from "../../firebase"
 
 class WorkoutControl extends React.Component {
+
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
       selectedWorkout: null,
       editing: false,
@@ -105,9 +108,7 @@ class WorkoutControl extends React.Component {
         currentlyVisibleState = <NewWorkoutForm onNewWorkoutCreation={this.handleAddingWorkout}/>;
         buttonText = 'Return to Workouts';
       } else {
-        currentlyVisibleState = (
-          <WorkoutList workoutList={this.props.mainWorkoutList} onWorkoutClick={this.handleChangingWorkout} />
-        );
+        currentlyVisibleState = <WorkoutList workoutList={this.props.mainWorkoutList} onWorkoutSelection ={this.handleChangingWorkout} />
         buttonText = 'Add a New Workout';
       }
       return (
@@ -121,6 +122,7 @@ class WorkoutControl extends React.Component {
     }
   }
 }
+
 
 WorkoutControl.propTypes = {
   mainWorkoutList: PropTypes.object,

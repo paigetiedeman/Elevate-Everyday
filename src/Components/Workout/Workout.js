@@ -8,7 +8,7 @@ export default function Workout(props) {
       <Card>
         <Card.Content>
           <Image floated="left" size="mini" src={props.img} />
-          <Card.Header>{props.title}</Card.Header>
+          <Card.Header>{props.name}</Card.Header>
           <Card.Meta>{props.duration} minutes</Card.Meta>
           <Card.Description>{props.equipment}</Card.Description>
           <Button color='teal' onClick= {() => props.whenWorkoutClicked(props.id)}>
@@ -23,10 +23,11 @@ export default function Workout(props) {
 
 Workout.propTypes = {
   img: PropTypes.string,
-  title: PropTypes.string,
+  name: PropTypes.string,
   duration: PropTypes.number,
   equipment: PropTypes.string,
   tags: PropTypes.string,
+  intensity: PropTypes.number,
   id: PropTypes.string,
   whenWorkoutClicked: PropTypes.func,
 }
