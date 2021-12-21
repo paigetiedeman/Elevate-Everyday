@@ -1,8 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Segment, Button, Dropdown } from 'semantic-ui-react';
+import { useFirestore } from 'react-redux-firebase';
 
-export default function ReusableForm() {
+export default function NewWorkoutForm(props) {
+  const firestore = useFirestore();
+
+  function addWorkoutToFirestore(e) {
+    e.preventDefault();
+    props.onNewWorkoutCreation();
+
+    return firestore.collection('workouts').add({
+      name: e.target.name.value,
+      duration: e.target.duration.value,
+      intensity: e.target.intensity.value,
+      tags: e.target.tags.value,
+      equipment: e.target.equipment.value,
+      details: e.target.details.value,
+      img: e.target.img.value,
+    });
+  }
+
   const options = [
     { key: 'pilates', text: 'Pilates', value: '#Pilates' },
     { key: 'cardio', text: 'Cardio', value: '#Cardio' },
@@ -23,7 +41,7 @@ export default function ReusableForm() {
 
   return (
     <Segment inverted textAlign={'center'}>
-      <Form inverted size="large">
+      <Form inverted size="large" onSubmit={addWorkoutToFirestore}>
         <Form.Group widths="equal">
           <Form.Field required>
             <label>Name</label>
@@ -72,21 +90,25 @@ export default function ReusableForm() {
             width={12}
           />
         </Form.Field>
-
-        <Form.Field>
-          <label>Equipment Needed</label>
-          <input type="text" name="equipment" placeholder="Mat" />
-        </Form.Field>
-        <Form.Input label="Image" type="text" placeholder="https://" name="img"/>
+        <Form.Input
+          label="Image"
+          type="text"
+          placeholder="https://"
+          name="img"
+        />
         <Form.TextArea
           label="Description"
           name="description"
           placeholder="4X20 plyo lunges, 4x20 elevated plié squats..."
         />
         <Button type="submit" color="teal">
-          Submit
+          Add
         </Button>
       </Form>
     </Segment>
   );
 }
+
+NewWorkoutForm.propTypes = {
+  onNewWorkoutCreation: PropTypes.func,
+};

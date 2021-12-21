@@ -12,8 +12,6 @@ export default function WorkoutList(props) {
 
   const workouts = useSelector(state => state.firestore.ordered.workouts);
 
-
-
     return (
       <React.Fragment>
         <hr/>

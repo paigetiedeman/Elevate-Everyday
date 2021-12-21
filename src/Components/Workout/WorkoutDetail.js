@@ -1,18 +1,32 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Button } from 'semantic-ui-react';
 
-export default function WorkoutDetail() {
+export default function WorkoutDetail(props) {
+  const { workout } = props;
+
   return (
-    <div>
-      
-    </div>
-  )
+    <>
+      <h1>Workout Details</h1>
+      <h3>
+        {workout.name} - {workout.duration}
+      </h3>
+      <p>{workout.tags}</p>
+      <p>{workout.intensity}</p>
+      <p>{workout.equipment}</p>
+      <p>{workout.details}</p>
+      <Button onClick={props.onEditWorkout} color="teal">
+        Edit
+      </Button>
+      <Button onClick={() => props.onClickingDelete(workout.id)} color="teal">
+        Delete
+      </Button>
+    </>
+  );
 }
 
-
-// Title: Cardio Pilates
-// Duration: 20 mins
-// Intensity: 2 (1-5)
-// Tags: Pilates, Cardio, Toning, FullBody
-// Equipment Needed: mat
-// Details: 4X20 pylo lunges, 4x20 elevated plié squats, 4X20 prayer pulses...
-// Notes: quick full body 
+WorkoutDetail.propTypes = {
+  workout: PropTypes.object,
+  onEditWorkout: PropTypes.func,
+  onClickingDelete: PropTypes.func,
+};

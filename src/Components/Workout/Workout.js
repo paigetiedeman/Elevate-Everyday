@@ -11,7 +11,7 @@ export default function Workout(props) {
           <Card.Header>{props.title}</Card.Header>
           <Card.Meta>{props.duration} minutes</Card.Meta>
           <Card.Description>{props.equipment}</Card.Description>
-          <Button color='teal'>
+          <Button color='teal' onClick= {() => props.whenWorkoutClicked(props.id)}>
             Details
           </Button>
         </Card.Content>
@@ -27,4 +27,6 @@ Workout.propTypes = {
   duration: PropTypes.number,
   equipment: PropTypes.string,
   tags: PropTypes.string,
+  id: PropTypes.string,
+  whenWorkoutClicked: PropTypes.func,
 }
