@@ -6,8 +6,9 @@ import WorkoutList from './WorkoutList';
 import * as a from './../../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withFirestore } from 'react-redux-firebase';
+import { withFirestore, isLoaded } from 'react-redux-firebase';
 import { Button } from 'semantic-ui-react';
+import { getAuth } from "firebase/auth";
 
 class WorkoutControl extends React.Component {
   constructor(props) {
@@ -70,35 +71,54 @@ class WorkoutControl extends React.Component {
   }
 
   render() {
-    let currentlyVisibleState = null;
-    let buttonText = null;
-    if (this.state.editing) {
-      currentlyVisibleState = (
-        <EditWorkout workout={this.state.selectedWorkout} onEditWorkout={this.handleEditing}/>
-      );
-      buttonText = 'Return to Workouts';
-    } else if (this.state.selectedWorkout != null) {
-      currentlyVisibleState = (
-        <WorkoutDetail workout={this.state.selectedWorkout} onClickingDelete={this.handleDelete} onClickingEdit={this.handleEditClick}/>
-      );
-      buttonText = 'Return to Workouts';
-    } else if (this.props.formVisibleOnPage) {
-      currentlyVisibleState = <NewWorkoutForm onNewWorkoutCreations={this.handleAddingWorkout}/>;
-      buttonText = 'Return to Workouts';
-    } else {
-      currentlyVisibleState = (
-        <WorkoutList workoutList={this.props.mainWorkoutList} onWorkoutClick={this.handleChangingWorkout} />
-      );
-      buttonText = 'Add a New Workout';
+    const auth = getAuth();
+
+    if (!isLoaded(auth)){
+      return (
+        <>
+          <h1>Loading...</h1>
+        </>
+      )
     }
-    return (
-      <>
-        {currentlyVisibleState}
-        <Button color="teal" onClick={this.handleClick}>
-          {buttonText}
-        </Button>
-      </>
-    );
+
+    if ((isLoaded(auth)) && auth.currentUser == null ){
+      return (
+        <>
+          <h1>You must be signed in to access this page.</h1>
+        </>
+      )
+    }
+    if ((isLoaded(auth)) && (auth.currentUser != null)) {
+      let currentlyVisibleState = null;
+      let buttonText = null;
+      if (this.state.editing) {
+        currentlyVisibleState = (
+          <EditWorkout workout={this.state.selectedWorkout} onEditWorkout={this.handleEditing}/>
+        );
+        buttonText = 'Return to Workouts';
+      } else if (this.state.selectedWorkout != null) {
+        currentlyVisibleState = (
+          <WorkoutDetail workout={this.state.selectedWorkout} onClickingDelete={this.handleDelete} onClickingEdit={this.handleEditClick}/>
+        );
+        buttonText = 'Return to Workouts';
+      } else if (this.props.formVisibleOnPage) {
+        currentlyVisibleState = <NewWorkoutForm onNewWorkoutCreation={this.handleAddingWorkout}/>;
+        buttonText = 'Return to Workouts';
+      } else {
+        currentlyVisibleState = (
+          <WorkoutList workoutList={this.props.mainWorkoutList} onWorkoutClick={this.handleChangingWorkout} />
+        );
+        buttonText = 'Add a New Workout';
+      }
+      return (
+        <>
+          {currentlyVisibleState}
+          <Button color="teal" onClick={this.handleClick}>
+            {buttonText}
+          </Button>
+        </>
+      );
+    }
   }
 }
 

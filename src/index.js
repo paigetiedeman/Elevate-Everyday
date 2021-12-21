@@ -21,7 +21,7 @@ const rrfProps = {
   firebase,
   config: {
         userProfile: "users",
-        useFirestoreForProfile: true
+        // useFirestoreForProfile: true
     },
   dispatch: store.dispatch,
   createFirestoreInstance
