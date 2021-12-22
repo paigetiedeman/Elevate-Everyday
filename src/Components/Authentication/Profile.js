@@ -20,7 +20,7 @@ export default function Profile() {
     <>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Profile</h2>
+          <h2 className="text-center mb-6">Profile</h2>
           <strong>Email:</strong> 
         </Card.Body>
       </Card>

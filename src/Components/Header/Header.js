@@ -1,40 +1,54 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Navbar } from 'react-bootstrap';
 
-export default function Header() {
+const Header = () => {
+  const navStyle = {
+    backgroundColor: 'grey',
+    color: 'white',
+    display: 'flex',
+    
+    padding: '12px'
+  };
 
+  const linkStyle = {
+    color: 'white',
+    padding: '6px',
+  }
 
+  const title = {
+    fontSize: 'x-large',
+  }
 
   return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <h3>Elevate Everyday</h3>
-        {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button> */}
-        <div id="navbarNav">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <Link className="nav-link" to="/">Workouts <span className="sr-only"></span></Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/calendar">Calendar</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/blog">Blog</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/signup">Create User</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/profile">Profile</Link>
-            </li>
-            {/* <li className="nav-item">
+    <Navbar collapseOnSelect expand="lg" className="navbar" style={navStyle}>
+      <Navbar.Brand style={title}>Elevate Everyday</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Link className="link" to="/" style={linkStyle}>
+          Workouts
+        </Link>
+        <Link className="link" to="/calendar" style={linkStyle}>
+          Calendar
+        </Link>
+        <Link className="link" to="/signup" style={linkStyle}>
+          Sign Up
+        </Link>
+        <Link className="link" to="/login" style={linkStyle}>
+          Login
+        </Link>
+        <Link className="link" to="/profile" style={linkStyle}>
+          Profile
+        </Link>
+        {/* 
+              <Link className="disabled" to="/blog">Blog</Link>
+             */}
+        {/* 
               <Link className="nav-link disabled" to="#">Meal Plan</Link>
-            </li> */}
-          </ul>
-        </div>
-      </nav>
-    </>
-  )
-}
+             */}
+      </Navbar.Collapse>
+    </Navbar>
+  );
+};
+
+export default Header;

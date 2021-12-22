@@ -5,16 +5,25 @@ import { Button } from 'semantic-ui-react';
 export default function WorkoutDetail(props) {
   const { workout } = props;
 
+  const imgStyle = {
+    height: "300px", 
+    width: "auto",
+    float: "left", 
+    padding: "20px"
+  }
+
   return (
     <>
       <h1>Workout Details</h1>
+      <img src={workout.img} alt="img" style={imgStyle}/>
       <h3>
-        {workout.name} - {workout.duration}
+        {workout.name} - {workout.duration} minutes
       </h3>
-      <p>{workout.tags}</p>
-      <p>{workout.intensity}</p>
-      <p>{workout.equipment}</p>
-      <p>{workout.details}</p>
+      <p>#{workout.tags}</p>
+      <p>{workout.intensity} intensity</p>
+      <p>Equipment Needed: {workout.equipment}</p>
+      <p>What's to be expected: {workout.details}</p>
+      <br />
       <Button onClick={props.onEditWorkout} color="teal">
         Edit
       </Button>

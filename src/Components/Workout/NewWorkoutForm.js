@@ -4,20 +4,23 @@ import { Form, Segment, Button } from 'semantic-ui-react';
 import { useFirestore } from 'react-redux-firebase';
 
 const NewWorkoutForm = () => {
-  const [name, setName] = useState('');
-  const [duration, setDuration] = useState('');
-  const [intensity, setIntensity] = useState('');
   const [tags, setTags] = useState('');
-  const [equipment, setEquipment] = useState('');
-  const [details, setDetails] = useState('');
-  const [img, setImg] = useState('');
+
   const firestore = useFirestore();
 
   function addWorkoutToFirestore(e) {
     e.preventDefault();
     // props.onNewWorkoutCreation();
-    let activity = { name, duration, intensity, tags, equipment, details, img}
-    return firestore.collection('workouts').add({activity});
+    let type = { tags }
+    return firestore.collection('workouts').add({
+      name: e.target.name.value,
+      duration: e.target.duration.value,
+      intensity: e.target.intensity.value,
+      equipment: e.target.equipment.value,
+      details: e.target.details.value,
+      img: e.target.img.value,
+      type
+    });
   }
 
   // const options = [
@@ -46,21 +49,21 @@ const NewWorkoutForm = () => {
             <label>Name</label>
             <input
               type="text"
-              value={name}
+              name="name"
               placeholder="Cardio Pilates"
               required
-              onChange={(e) => setName(e.target.value)}
+
             />
           </Form.Field>
           <Form.Field required>
             <label>Duration</label>
             <input
               type="number"
-              value={duration}
+              name="duration"
               placeholder="20"
               min="0"
               required
-              onChange={(e) => setDuration(e.target.value)}
+
             />
           </Form.Field>
         </Form.Group>
@@ -69,16 +72,16 @@ const NewWorkoutForm = () => {
             <label>Intensity</label>
             <input
               type="number"
-              value={intensity}
+              name="intensity"
               placeholder="Enter a number 1-5"
               min="1"
               max="5"
-              onChange={(e) => setIntensity(e.target.value)}
+
             />
           </Form.Field>
           <Form.Field>
             <label>Equipment Needed</label>
-            <input type="text" value={equipment} placeholder="Mat" onChange={(e) => setEquipment(e.target.value)}/>
+            <input type="text" name="equipment" placeholder="Mat" />
           </Form.Field>
         </Form.Group>
 
@@ -99,14 +102,13 @@ const NewWorkoutForm = () => {
           label="Image"
           type="text"
           placeholder="https://"
-          value={img}
-          onChange={(e) => setImg(e.target.value)}
+          name="img"
+
         />
         <Form.TextArea
           label="Details"
-          value={details}
+          name="details"
           placeholder="4X20 plyo lunges, 4x20 elevated plié squats..."
-          onChange={(e) => setDetails(e.target.value)}
         />
         <Button type="submit" color="teal">
           Add
