@@ -4,13 +4,13 @@ import { Card, Image, Button } from 'semantic-ui-react';
 
 export default function Workout(props) {
   const imgStyle = {
-    height: "100px", 
-    width: "100px",
+    height: "175px", 
+    width: "auto",
   }
 
   return (
-    <Card.Group>
-      <Card>
+
+      <Card color='purple' >
         <Card.Content>
           <Image floated="left" src={props.img} style={imgStyle}/>
           <Card.Header>{props.name}</Card.Header>
@@ -23,7 +23,7 @@ export default function Workout(props) {
         </Card.Content>
         <Card.Content>{props.type.tags}, {props.type.tagsTwo}</Card.Content>
       </Card>
-    </Card.Group>
+
   );
 }
 

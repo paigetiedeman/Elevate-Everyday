@@ -3,9 +3,17 @@ import Workout from './Workout';
 import PropTypes from 'prop-types';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
+import { Card } from 'semantic-ui-react';
 
 export default function WorkoutList(props) {
 
+  const wrapCards = {
+    width: "340px",
+    height: "510px",
+    float: "left",
+    margin: '10px'
+  }
+  
   useFirestoreConnect([
     { collection: 'workouts' }
   ]);
@@ -15,6 +23,7 @@ export default function WorkoutList(props) {
     return (
       <>
         <hr/>
+        <Card.Group itemsPerRow={3} >
         {workouts.map((workout) => {
           return <Workout
             whenWorkoutClicked = { props.onWorkoutSelection }
@@ -30,6 +39,7 @@ export default function WorkoutList(props) {
             id={workout.id}
             key={workout.id}/>
         })}
+        </Card.Group>
         <br />
       </>
     );

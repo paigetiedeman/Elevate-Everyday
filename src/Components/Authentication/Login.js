@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card, Form, Button } from 'react-bootstrap';
+import { Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { Container } from 'react-bootstrap';
+import { Button, Segment } from 'semantic-ui-react';
 
 export default function Login() {
   function doSignIn(event) {
@@ -32,11 +32,13 @@ export default function Login() {
   }
 
   return (
-    <Container
-      className="d-flex align-items-center justify-content-center"
-      style={{ minHeight: '100vh' }}
+    <Segment
+      textAlign="center"
+      color="purple"
+      className="align-items-center justify-content-center"
+      style={{ maxHeight: '100vh' }}
     >
-      <div style={{ minWidth: '800px' }}>
+      <div>
         <Card>
           <Card.Body>
             <h2 className="text-center mb-4">Log In</h2>
@@ -50,22 +52,22 @@ export default function Login() {
                 <Form.Control type="password" name="signInPassword" required />
               </Form.Group>
               <br />
-              <Button className="w-100" type="submit">
+              <Button color="teal" type="submit">
                 Log In
               </Button>
-            </Form>
-            {/* <div className="w-100 text-center mt-3">
+              {/* <div className="w-100 text-center mt-3">
             <Link to="/profile">See Profile?</Link>
           </div> */}
+              <Button color="teal" variant="link" onClick={doSignOut}>
+                Log Out
+              </Button>
+            </Form>
           </Card.Body>
-          <Button variant="link" onClick={doSignOut}>
-            Log Out
-          </Button>
         </Card>
         <div className="w-100 text-center mt-2">
           Need an account? <Link to="/signup">Sign Up</Link>
         </div>
       </div>
-    </Container>
+    </Segment>
   );
 }

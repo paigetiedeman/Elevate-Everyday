@@ -4,11 +4,11 @@ import { Navbar } from 'react-bootstrap';
 
 const Header = () => {
   const navStyle = {
-    backgroundColor: 'grey',
+    backgroundColor: '#008080',
     color: 'white',
     display: 'flex',
-    
-    padding: '12px'
+    padding: '16px',
+    marginBottom: '30px',
   };
 
   const linkStyle = {
@@ -17,7 +17,7 @@ const Header = () => {
   }
 
   const title = {
-    fontSize: 'x-large',
+    fontSize: '30px',
   }
 
   return (

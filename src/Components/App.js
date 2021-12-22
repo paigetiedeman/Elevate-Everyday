@@ -16,6 +16,7 @@ function App() {
   return (
     <Router>
       <Header />
+      <Container className="align-items-center">
           <Switch>
             <Route path="/signup">
               <SignUp />
@@ -36,6 +37,7 @@ function App() {
               <WorkoutControl />
             </Route>
           </Switch>
+          </Container>
       <Footer />
     </Router>
   );

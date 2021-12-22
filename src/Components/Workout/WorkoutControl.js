@@ -7,7 +7,7 @@ import * as a from './../../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withFirestore, isLoaded } from 'react-redux-firebase';
-import { Button } from 'semantic-ui-react';
+import { Button, Segment } from 'semantic-ui-react';
 import { getAuth } from "firebase/auth";
 
 class WorkoutControl extends React.Component {
@@ -115,9 +115,11 @@ class WorkoutControl extends React.Component {
       return (
         <>
           {currentlyVisibleState}
+          <Segment textAlign={'center'} color='purple'>
           <Button color="teal" onClick={this.handleClick}>
             {buttonText}
           </Button>
+          </Segment>
         </>
       );
     }

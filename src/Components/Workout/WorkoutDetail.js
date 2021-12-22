@@ -12,12 +12,15 @@ export default function WorkoutDetail(props) {
     padding: "20px"
   }
 
+  const title = {
+    textAlign: "center",
+  }
   return (
     <>
-      <h1>Workout Details</h1>
+      <h1 style={title}>{workout.name}</h1>
       <img src={workout.img} alt="img" style={imgStyle}/>
       <h3>
-        {workout.name} - {workout.duration} minutes
+        {workout.duration} minutes
       </h3>
       <p>{workout.type.tags}, {workout.type.tagsTwo}</p>
       <p>{workout.intensity} intensity</p>

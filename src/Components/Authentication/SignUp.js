@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card, Form, Button } from 'react-bootstrap';
+import { Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { Container } from 'react-bootstrap';
+import { Segment, Button } from 'semantic-ui-react';
 
 export default function SignUp() {
   function doSignUp(event) {
@@ -20,48 +20,49 @@ export default function SignUp() {
   }
 
   return (
-    <Container
-    className="d-flex align-items-center justify-content-center"
-    style={{ minHeight: '100vh' }}
-  >
-    <div style={{ minWidth: '800px' }}>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
-          <Form onSubmit={doSignUp}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="email"
-                name="email"
-                required
-              />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                name="password"
-                placeholder="Password"
-                required
-              />
-            </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control type="password" name="password" required />
-            </Form.Group>
-            <br />
-            <Button className="w-100" type="submit">
-              Sign Up
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login">Log In</Link>
+    <Segment
+      color="purple"
+      className="align-items-center justify-content-center"
+      style={{ maxHeight: '100vh' }}
+    >
+      <div style={{ minWidth: '800px' }}>
+        <Card>
+          <Card.Body>
+            <h2 className="text-center mb-4">Sign Up</h2>
+            <Form onSubmit={doSignUp}>
+              <Form.Group id="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="email"
+                  name="email"
+                  required
+                />
+              </Form.Group>
+              <Form.Group id="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                />
+              </Form.Group>
+              <Form.Group id="password-confirm">
+                <Form.Label>Password Confirmation</Form.Label>
+                <Form.Control type="password" name="password" required />
+              </Form.Group>
+              <br />
+              <Button color="teal" className="w-100" type="submit">
+                Sign Up
+              </Button>
+            </Form>
+          </Card.Body>
+        </Card>
+        <div className="w-100 text-center mt-2">
+          Already have an account? <Link to="/login">Log In</Link>
+        </div>
       </div>
-      </div>
-    </Container>
+    </Segment>
   );
 }
