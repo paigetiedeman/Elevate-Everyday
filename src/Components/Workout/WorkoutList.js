@@ -1,7 +1,7 @@
 import React from 'react';
 import Workout from './Workout';
 import PropTypes from 'prop-types';
-import { useFirestoreConnect } from 'react-redux-firebase';
+import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
 
 export default function WorkoutList(props) {
@@ -11,7 +11,7 @@ export default function WorkoutList(props) {
   ]);
 
   const workouts = useSelector(state => state.firestore.ordered.workouts);
-
+  if (isLoaded(workouts)) {
     return (
       <>
         <hr/>
@@ -30,7 +30,13 @@ export default function WorkoutList(props) {
         })}
       </>
     );
-
+      } else {
+        return (
+        <>
+          <h3>Loading...</h3>
+        </>
+        );
+      }
 }
 
 WorkoutList.propTypes = {

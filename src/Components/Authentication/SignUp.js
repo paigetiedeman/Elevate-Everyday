@@ -1,13 +1,7 @@
-import React, { useRef, useState } from 'react';
-import { Card, Form, Button, Alert } from 'react-bootstrap';
-// import { useAuth } from "../../contexts/AuthContext"
-import { Link, useHistory } from 'react-router-dom';
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-} from 'firebase/auth';
+import React from 'react';
+import { Card, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function SignUp() {
   function doSignUp(event) {
@@ -23,31 +17,6 @@ export default function SignUp() {
         alert(error.message);
       });
   }
-  // const emailRef = useRef();
-  // const passwordRef = useRef();
-  // const passwordConfirmRef = useRef();
-  // const { signUp } = useAuth();
-  // const [loading, setLoading] = useState(false);
-  // const history = useHistory();
-
-  // async function handleSubmit(e) {
-  //   e.preventDefault()
-
-  //   if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-  //     return setError("Passwords do not match")
-  //   }
-
-  //   try {
-  //     setError("")
-  //     setLoading(true)
-  //     await signUp(emailRef.current.value, passwordRef.current.value)
-  //     history.push("/")
-  //   } catch {
-  //     setError("Failed to create an account")
-  //   }
-
-  //   setLoading(false)
-  // }
 
   return (
     <>
@@ -75,7 +44,7 @@ export default function SignUp() {
             </Form.Group>
             <Form.Group id="password-confirm">
               <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control type="password" type="password" required />
+              <Form.Control type="password" name="password" required />
             </Form.Group>
             <br />
             <Button className="w-100" type="submit">

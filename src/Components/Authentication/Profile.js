@@ -1,22 +1,19 @@
-import React, { useState } from "react"
-import { Card, Button, Alert } from "react-bootstrap"
-import { useAuth } from "../../contexts/AuthContext"
-import { Link, useHistory } from "react-router-dom"
+import React from "react"
+import { Card, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import { getAuth, signOut } from "firebase/auth"
 
 export default function Profile() {
-  const [error, setError] = useState("")
-  const { currentUser, logout } = useAuth()
-  const history = useHistory()
-
-  async function handleLogout() {
-    setError("")
-
-    try {
-      await logout()
-      history.push("/login")
-    } catch {
-      setError("Failed to log out")
-    }
+  // const email = event.target.email.value;
+  
+  function doSignOut(event) {
+    const auth = getAuth();
+    console.log(auth);
+    signOut(auth).then(function() {
+      alert("Successfully signed out!");
+    }).catch(function(error) {
+      alert(error.message);
+    });
   }
 
   return (
@@ -24,17 +21,14 @@ export default function Profile() {
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <strong>Email:</strong> {currentUser.email}
-          <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
-            Update Profile
-          </Link>
+          <strong>Email:</strong> 
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        <Button variant="link" onClick={handleLogout}>
+        <Button variant="link" onClick={doSignOut}>
           Log Out
         </Button>
+      <Link to="/">Workouts</Link>
       </div>
     </>
   )
