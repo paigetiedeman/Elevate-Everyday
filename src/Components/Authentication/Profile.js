@@ -2,6 +2,7 @@ import React from "react"
 import { Card, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { getAuth, signOut } from "firebase/auth"
+import { Container } from 'react-bootstrap';
 
 export default function Profile() {
   // const email = event.target.email.value;
@@ -17,7 +18,11 @@ export default function Profile() {
   }
 
   return (
-    <>
+    <Container
+    className="d-flex align-items-center justify-content-center"
+    style={{ minHeight: '100vh' }}
+  >
+    <div style={{ minWidth: '800px' }}>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-6">Profile</h2>
@@ -30,6 +35,7 @@ export default function Profile() {
         </Button>
       <Link to="/">Workouts</Link>
       </div>
-    </>
+      </div>
+    </Container>
   )
 }

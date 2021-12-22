@@ -16,11 +16,6 @@ function App() {
   return (
     <Router>
       <Header />
-      <Container
-        className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: '100vh' }}
-      >
-        <div style={{ minWidth: '800px' }}>
           <Switch>
             <Route path="/signup">
               <SignUp />
@@ -41,8 +36,6 @@ function App() {
               <WorkoutControl />
             </Route>
           </Switch>
-        </div>
-      </Container>
       <Footer />
     </Router>
   );

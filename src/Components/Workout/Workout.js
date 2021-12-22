@@ -15,6 +15,7 @@ export default function Workout(props) {
           <Image floated="left" src={props.img} style={imgStyle}/>
           <Card.Header>{props.name}</Card.Header>
           <Card.Meta>{props.duration} minutes</Card.Meta>
+          <Card.Meta>{props.intensity}i</Card.Meta>
           <Card.Description>Equipment Needed: {props.equipment}</Card.Description>
           <Button color='teal' onClick= {() => props.whenWorkoutClicked(props.id)}>
             Details
