@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/Elevate-Everyday/index/static/css/main.bdac4d18.chunk.css",
-    "main.js": "/Elevate-Everyday/index/static/js/main.a1ef90ee.chunk.js",
-    "main.js.map": "/Elevate-Everyday/index/static/js/main.a1ef90ee.chunk.js.map",
-    "runtime-main.js": "/Elevate-Everyday/index/static/js/runtime-main.10ea40be.js",
-    "runtime-main.js.map": "/Elevate-Everyday/index/static/js/runtime-main.10ea40be.js.map",
+    "main.css": "/Elevate-Everyday/index/static/css/main.d498bfb3.chunk.css",
+    "main.js": "/Elevate-Everyday/index/static/js/main.c3de3635.chunk.js",
+    "main.js.map": "/Elevate-Everyday/index/static/js/main.c3de3635.chunk.js.map",
+    "runtime-main.js": "/Elevate-Everyday/index/static/js/runtime-main.d6605b1f.js",
+    "runtime-main.js.map": "/Elevate-Everyday/index/static/js/runtime-main.d6605b1f.js.map",
     "static/css/2.a4c09ab7.chunk.css": "/Elevate-Everyday/index/static/css/2.a4c09ab7.chunk.css",
-    "static/js/2.3dfc6c68.chunk.js": "/Elevate-Everyday/index/static/js/2.3dfc6c68.chunk.js",
-    "static/js/2.3dfc6c68.chunk.js.map": "/Elevate-Everyday/index/static/js/2.3dfc6c68.chunk.js.map",
-    "static/js/3.b912039b.chunk.js": "/Elevate-Everyday/index/static/js/3.b912039b.chunk.js",
-    "static/js/3.b912039b.chunk.js.map": "/Elevate-Everyday/index/static/js/3.b912039b.chunk.js.map",
+    "static/js/2.b3179b6d.chunk.js": "/Elevate-Everyday/index/static/js/2.b3179b6d.chunk.js",
+    "static/js/2.b3179b6d.chunk.js.map": "/Elevate-Everyday/index/static/js/2.b3179b6d.chunk.js.map",
+    "static/js/3.3c928300.chunk.js": "/Elevate-Everyday/index/static/js/3.3c928300.chunk.js",
+    "static/js/3.3c928300.chunk.js.map": "/Elevate-Everyday/index/static/js/3.3c928300.chunk.js.map",
     "index.html": "/Elevate-Everyday/index/index.html",
-    "precache-manifest.1578d7abbec26af58edf3c1a53633be2.js": "/Elevate-Everyday/index/precache-manifest.1578d7abbec26af58edf3c1a53633be2.js",
+    "precache-manifest.6aa256f2d67b0cae95d0c38483c2d110.js": "/Elevate-Everyday/index/precache-manifest.6aa256f2d67b0cae95d0c38483c2d110.js",
     "service-worker.js": "/Elevate-Everyday/index/service-worker.js",
     "static/css/2.a4c09ab7.chunk.css.map": "/Elevate-Everyday/index/static/css/2.a4c09ab7.chunk.css.map",
-    "static/css/main.bdac4d18.chunk.css.map": "/Elevate-Everyday/index/static/css/main.bdac4d18.chunk.css.map",
+    "static/css/main.d498bfb3.chunk.css.map": "/Elevate-Everyday/index/static/css/main.d498bfb3.chunk.css.map",
     "static/media/semantic.min.css": "/Elevate-Everyday/index/static/media/outline-icons.ef60a4f6.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.10ea40be.js",
+    "static/js/runtime-main.d6605b1f.js",
     "static/css/2.a4c09ab7.chunk.css",
-    "static/js/2.3dfc6c68.chunk.js",
-    "static/css/main.bdac4d18.chunk.css",
-    "static/js/main.a1ef90ee.chunk.js"
+    "static/js/2.b3179b6d.chunk.js",
+    "static/css/main.d498bfb3.chunk.css",
+    "static/js/main.c3de3635.chunk.js"
   ]
 }
