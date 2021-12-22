@@ -26,7 +26,7 @@ Workout.propTypes = {
   name: PropTypes.string,
   duration: PropTypes.number,
   equipment: PropTypes.string,
-  tags: PropTypes.array,
+  tags: PropTypes.string,
   intensity: PropTypes.number,
   id: PropTypes.string,
   whenWorkoutClicked: PropTypes.func,
