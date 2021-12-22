@@ -88,13 +88,24 @@ const NewWorkoutForm = () => {
         <Form.Field>
           <label>Workout Tags</label>
           <select
+            name="tags"
             placeholder="Tags"
             width={12}
             value={tags}
             onChange={(e) => setTags(e.target.value)}
           >
-            <option value="pilates">Pilates</option>
-            <option value="cardio">Yoga</option>
+            <option value="#Pilates">Pilates</option>
+            <option value="#Yoga">Yoga</option>
+            <option value="#Cardio">Cardio</option>
+            <option value="#HIIT">HIIT</option>
+            <option value="#Stretch">Stretch</option>
+            <option value="#Barre">Barre</option>
+            <option value="#Kickboxing">Kickboxing</option>
+            <option value="#LowerBody">Lower Body</option>
+            <option value="#UpperBody">Upper Body</option>
+            <option value="#Abs">Abs</option>
+            <option value="#Arms">Arms</option>
+            <option value="#Quick">Quick</option>
             </select>
 
         </Form.Field>

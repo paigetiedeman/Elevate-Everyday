@@ -20,7 +20,7 @@ export default function Workout(props) {
             Details
           </Button>
         </Card.Content>
-        <Card.Content>#Cardio {props.tags}</Card.Content>
+        <Card.Content>#{props.type.tags}</Card.Content>
       </Card>
     </Card.Group>
   );
@@ -31,6 +31,7 @@ Workout.propTypes = {
   name: PropTypes.string,
   duration: PropTypes.string,
   equipment: PropTypes.string,
+  type: PropTypes.any,
   tags: PropTypes.string,
   intensity: PropTypes.string,
   id: PropTypes.string,

@@ -23,6 +23,7 @@ export default function WorkoutList(props) {
             intensity={workout.intensity}
             equipment={workout.equipment}
             tags={workout.tags}
+            type={workout.type}
             details={workout.details}
             img={workout.img}
             id={workout.id}

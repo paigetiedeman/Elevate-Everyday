@@ -31,14 +31,14 @@ function App() {
             <Route path="/profile">
               <Profile />
             </Route>
-            <Route path="/">
-              <WorkoutControl />
-            </Route>
             <Route path="/calendar">
               <Calendar />
             </Route>
             <Route path="/blog">
               <Blog />
+            </Route>
+            <Route path="/">
+              <WorkoutControl />
             </Route>
           </Switch>
         </div>

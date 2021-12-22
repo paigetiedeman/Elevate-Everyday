@@ -19,7 +19,7 @@ export default function WorkoutDetail(props) {
       <h3>
         {workout.name} - {workout.duration} minutes
       </h3>
-      <p>#{workout.tags}</p>
+      <p>#{workout.type.tags}</p>
       <p>{workout.intensity} intensity</p>
       <p>Equipment Needed: {workout.equipment}</p>
       <p>What's to be expected: {workout.details}</p>
