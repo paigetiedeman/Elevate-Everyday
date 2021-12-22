@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useFirestore } from 'react-redux-firebase';
-import { Form, Segment, Button, Dropdown } from 'semantic-ui-react';
+import { Form, Segment, Button } from 'semantic-ui-react';
 
 export default function EditWorkout(props) {
   
@@ -9,41 +9,27 @@ export default function EditWorkout(props) {
 
   const { workout } = props;
 
+  const [tags, setTags] = useState('');
+  const [tagsTwo, setTagsTwo] = useState('');
+
   function handleEditWorkoutForm(e) {
     e.preventDefault();
     props.onEditWorkout();
+    let type = { tags, tagsTwo };
     const propertiesToUpdate = {
       name: e.target.name.value,
       duration: e.target.duration.value,
       intensity: e.target.intensity.value,
-      tags: e.target.tags.value,
       equipment: e.target.equipment.value,
       details: e.target.details.value,
       img: e.target.img.value,
+      type
     };
     return firestore.update(
       { collection: 'workouts', doc: workout.id },
       propertiesToUpdate
     );
   }
-
-  const options = [
-    { key: 'pilates', text: 'Pilates', value: '#Pilates' },
-    { key: 'cardio', text: 'Cardio', value: '#Cardio' },
-    { key: 'upperBody', text: 'Upper Body', value: '#UpperBody' },
-    { key: 'lowerBody', text: 'Lower Body', value: '#LowerBody' },
-    { key: 'hiit', text: 'HIIT', value: '#HIIT' },
-    { key: 'yoga', text: 'Yoga', value: '#Yoga' },
-    { key: 'stretch', text: 'Stretch', value: '#Stretch' },
-    { key: 'meditation', text: 'Meditation', value: '#Meditation' },
-    { key: 'quick', text: 'Quick', value: '#Quick' },
-    { key: 'barre', text: 'Barre', value: '#Barre' },
-    { key: 'toning', text: 'Toning', value: '#Toning' },
-    { key: 'kickboxing', text: 'Kickboxing', value: '#Kickboxing' },
-    { key: 'Dance', text: 'Dance', value: '#Dance' },
-    { key: 'abs', text: 'Abs', value: '#Abs' },
-    { key: 'arms', text: 'Arms', value: '#Arms' },
-  ];
 
   return (
     <Segment inverted textAlign={'center'}>
@@ -85,26 +71,57 @@ export default function EditWorkout(props) {
           </Form.Field>
           <Form.Field>
             <label>Equipment Needed</label>
-            <input
-              type="text"
-              name="equipment"
-              placeholder="Mat"
-              defaultValue={props.workout.equipment}
-            />
+            <input type="text" name="equipment" placeholder="Mat" defaultValue={props.workout.equipment}/>
           </Form.Field>
         </Form.Group>
-
+        <Form.Group widths="equal">
         <Form.Field>
           <label>Workout Tags</label>
-          <Dropdown
+          <select
+            name="tags"
             placeholder="Tags"
-            multiple
-            selection
-            options={options}
             width={12}
-            defaultValue={props.workout.tags}
-          />
+            value={tags}
+            onChange={(e) => setTags(e.target.value)}
+          >
+            <option value="#Pilates">Pilates</option>
+            <option value="#Yoga">Yoga</option>
+            <option value="#Cardio">Cardio</option>
+            <option value="#HIIT">HIIT</option>
+            <option value="#Stretch">Stretch</option>
+            <option value="#Barre">Barre</option>
+            <option value="#Kickboxing">Kickboxing</option>
+            <option value="#LowerBody">Lower Body</option>
+            <option value="#UpperBody">Upper Body</option>
+            <option value="#Abs">Abs</option>
+            <option value="#Arms">Arms</option>
+            <option value="#Quick">Quick</option>
+          </select>
         </Form.Field>
+        <Form.Field>
+          <label>Workout Tags</label>
+          <select
+            name="tagsTwo"
+            placeholder="Tags"
+            width={12}
+            value={tagsTwo}
+            onChange={(e) => setTagsTwo(e.target.value)}
+          >
+            <option value="#Pilates">Pilates</option>
+            <option value="#Yoga">Yoga</option>
+            <option value="#Cardio">Cardio</option>
+            <option value="#HIIT">HIIT</option>
+            <option value="#Stretch">Stretch</option>
+            <option value="#Barre">Barre</option>
+            <option value="#Kickboxing">Kickboxing</option>
+            <option value="#LowerBody">Lower Body</option>
+            <option value="#UpperBody">Upper Body</option>
+            <option value="#Abs">Abs</option>
+            <option value="#Arms">Arms</option>
+            <option value="#Quick">Quick</option>
+          </select>
+        </Form.Field>
+        </Form.Group>
         <Form.Input
           label="Image"
           type="text"
@@ -119,7 +136,7 @@ export default function EditWorkout(props) {
           defaultValue={props.workout.details}
         />
         <Button type="submit" color="teal">
-          Edit
+          Save
         </Button>
       </Form>
     </Segment>

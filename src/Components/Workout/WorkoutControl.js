@@ -47,6 +47,7 @@ class WorkoutControl extends React.Component {
         duration: workout.get('duration'),
         intensity: workout.get('intensity'),
         tags: workout.get('tags'),
+        tagsTwo: workout.get('tagsTwo'),
         type: workout.get('type'),
         equipment: workout.get('equipment'),
         details: workout.get('details'),

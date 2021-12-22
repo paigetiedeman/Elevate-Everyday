@@ -23,12 +23,14 @@ export default function WorkoutList(props) {
             intensity={workout.intensity}
             equipment={workout.equipment}
             tags={workout.tags}
+            tagsTwo={workout.tagsTwo}
             type={workout.type}
             details={workout.details}
             img={workout.img}
             id={workout.id}
             key={workout.id}/>
         })}
+        <br />
       </>
     );
       } else {

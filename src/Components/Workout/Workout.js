@@ -20,7 +20,7 @@ export default function Workout(props) {
             Details
           </Button>
         </Card.Content>
-        <Card.Content>#{props.type.tags}</Card.Content>
+        <Card.Content>{props.type.tags}, {props.type.tagsTwo}</Card.Content>
       </Card>
     </Card.Group>
   );
@@ -33,6 +33,7 @@ Workout.propTypes = {
   equipment: PropTypes.string,
   type: PropTypes.any,
   tags: PropTypes.string,
+  tagsTwo: PropTypes.string,
   intensity: PropTypes.string,
   id: PropTypes.string,
   whenWorkoutClicked: PropTypes.func

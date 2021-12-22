@@ -19,12 +19,12 @@ export default function WorkoutDetail(props) {
       <h3>
         {workout.name} - {workout.duration} minutes
       </h3>
-      <p>#{workout.type.tags}</p>
+      <p>{workout.type.tags}, {workout.type.tagsTwo}</p>
       <p>{workout.intensity} intensity</p>
       <p>Equipment Needed: {workout.equipment}</p>
       <p>What's to be expected: {workout.details}</p>
       <br />
-      <Button onClick={props.onEditWorkout} color="teal">
+      <Button onClick={() => props.onClickingEdit(workout.id)} color="teal">
         Edit
       </Button>
       <Button onClick={() => props.onClickingDelete(workout.id)} color="teal">
@@ -36,6 +36,6 @@ export default function WorkoutDetail(props) {
 
 WorkoutDetail.propTypes = {
   workout: PropTypes.object,
-  onEditWorkout: PropTypes.func,
+  onClickingEdit: PropTypes.func,
   onClickingDelete: PropTypes.func,
 };
