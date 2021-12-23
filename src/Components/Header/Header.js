@@ -19,10 +19,6 @@ const Header = () => {
     fontSize: '18px',
   }
 
-  // const title = {
-  //   fontSize: '30px',
-  // }
-
   return (
     <Navbar collapseOnSelect expand="lg" className="navbar" style={navStyle}>
       <Navbar.Brand className="elevate" style={{color: 'white'}}>Elevate Everyday</Navbar.Brand>

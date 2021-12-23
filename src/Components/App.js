@@ -5,8 +5,6 @@ import Footer from './Footer/Footer';
 import Calendar from './Calendar/Calendar';
 import DisplayList from './Blog/DisplayList';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-// WIP: Authentication
 import SignUp from './Authentication/SignUp';
 import Login from './Authentication/Login';
 import Profile from './Authentication/Profile';
@@ -37,8 +35,8 @@ function App() {
               <WorkoutControl />
             </Route>
           </Switch>
-          </Container>
       <Footer />
+          </Container>
     </Router>
   );
 }

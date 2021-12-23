@@ -115,6 +115,7 @@ class WorkoutControl extends React.Component {
       return (
         <>
           {currentlyVisibleState}
+          <br />
           <Segment textAlign={'center'} color='purple'>
           <Button color="teal" onClick={this.handleClick}>
             {buttonText}

@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Card, Image, Button } from 'semantic-ui-react';
 
 export default function Workout(props) {
+
   const imgStyle = {
-    height: "175px", 
+    height: "220px", 
     width: "auto",
   }
 
@@ -13,15 +14,16 @@ export default function Workout(props) {
       <Card color='purple' >
         <Card.Content>
           <Image floated="left" src={props.img} style={imgStyle}/>
-          <Card.Header>{props.name}</Card.Header>
+          <Card.Header style={{fontSize: "24px"}}>{props.name}</Card.Header>
           <Card.Meta>{props.duration} minutes</Card.Meta>
           <Card.Meta>{props.intensity}i</Card.Meta>
           <Card.Description>Equipment Needed: {props.equipment}</Card.Description>
-          <Button color='teal' onClick= {() => props.whenWorkoutClicked(props.id)}>
+          
+          <Button color='teal' floated="right" onClick= {() => props.whenWorkoutClicked(props.id)}>
             Details
           </Button>
         </Card.Content>
-        <Card.Content>{props.type.tags}, {props.type.tagsTwo}</Card.Content>
+        <Card.Content extra>{props.type.tags}, {props.type.tagsTwo}</Card.Content>
       </Card>
 
   );
