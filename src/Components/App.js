@@ -3,7 +3,7 @@ import Header from './Header/Header';
 import WorkoutControl from './Workout/WorkoutControl';
 import Footer from './Footer/Footer';
 import Calendar from './Calendar/Calendar';
-import Blog from './Blog/Blog';
+import DisplayList from './Blog/DisplayList';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // WIP: Authentication
@@ -31,7 +31,7 @@ function App() {
               <Calendar />
             </Route>
             <Route path="/blog">
-              <Blog />
+              <DisplayList />
             </Route>
             <Route path="/">
               <WorkoutControl />

@@ -16,7 +16,7 @@ export default function WorkoutList(props) {
     return (
       <>
         <hr/>
-        <Card.Group itemsPerRow={3} >
+        <Card.Group itemsPerRow={2} >
         {workouts.map((workout) => {
           return <Workout
             whenWorkoutClicked = { props.onWorkoutSelection }

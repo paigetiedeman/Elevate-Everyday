@@ -31,6 +31,9 @@ const Header = () => {
         <Link className="link" to="/" style={linkStyle}>
           Workouts
         </Link>
+        <Link className="link" to="/blog" style={linkStyle}>
+          Blog
+        </Link>
         <Link className="link" to="/calendar" style={linkStyle}>
           Calendar
         </Link>
@@ -43,9 +46,6 @@ const Header = () => {
         <Link className="link" to="/profile" style={linkStyle}>
           Profile
         </Link>
-        {/* 
-              <Link className="disabled" to="/blog">Blog</Link>
-             */}
         {/* 
               <Link className="nav-link disabled" to="#">Meal Plan</Link>
              */}
