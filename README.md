@@ -1,6 +1,6 @@
 <div align="center">
 
-# Elevate Everyday
+# [Elevate Everyday](https://paigetiedeman.github.io/Elevate-Everyday/)
 
 ### By: Paige Tiedeman
 
