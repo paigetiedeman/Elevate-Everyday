@@ -1,4 +1,44 @@
+<div align="center">
+
 # Elevate Everyday
+
+### By: Paige Tiedeman
+
+</div>
+
+## Description: 
+
+This application uses React and Firebase to allow users full CRUD functionality to store workouts. This focuses on UI/UX design for a site with a variety of design frameworks.
+
+## Process:
+
+* See my planning repo [here](https://github.com/paigetiedeman/capstone-planning)
+
+<img src='src/assets/workout.drawio.png' />
+
+## Technologies Used
+
+* HTML
+* CSS
+* React-Bootstrap
+* Semantic UI
+* Tailwind
+* React Router
+* Firebase/Firestore
+* React.js
+* Day.js
+* Redux
+* Package.json
+
+## License
+
+_[MIT](https://opensource.org/licenses/MIT)_  
+Copyright (c) 2021 Paige Tiedeman
+
+## Known Bugs
+
+* Calendar is not available/in development
+
 
 <details>
 
