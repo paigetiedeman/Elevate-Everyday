@@ -25,7 +25,7 @@ export default function SignUp() {
       className="align-items-center justify-content-center"
       style={{ maxHeight: '100vh' }}
     >
-      <div style={{ minWidth: '800px' }}>
+      <div>
         <Card>
           <Card.Body>
             <h2 className="text-center mb-4">Sign Up</h2>

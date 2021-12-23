@@ -24,7 +24,7 @@ export default function Profile() {
       className="align-items-center justify-content-center"
       style={{ minHeight: '100vh' }}
     >
-      <div style={{ minWidth: '800px' }}>
+      <div >
         <Card>
           <Card.Body>
             <h2 className="text-center mb-6">Profile</h2>
