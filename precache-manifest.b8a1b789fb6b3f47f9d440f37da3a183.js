@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5371d39c4e9a155d588a64f05100b6d3",
+    "revision": "6d8db67ffa21a12c58eddc7f7c29e465",
     "url": "/Elevate-Everyday/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Elevate-Everyday/static/css/2.3094036a.chunk.css"
   },
   {
-    "revision": "1100480d975bb912cb1b",
+    "revision": "af3f6cb1e7038789c1d8",
     "url": "/Elevate-Everyday/static/css/main.939050f1.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Elevate-Everyday/static/js/3.8e7284a3.chunk.js"
   },
   {
-    "revision": "1100480d975bb912cb1b",
-    "url": "/Elevate-Everyday/static/js/main.c823901a.chunk.js"
+    "revision": "af3f6cb1e7038789c1d8",
+    "url": "/Elevate-Everyday/static/js/main.5563ca9e.chunk.js"
   },
   {
     "revision": "83dda54e71b33a993fbe",
