@@ -87,9 +87,9 @@ class WorkoutControl extends React.Component {
 
     if ((isLoaded(auth)) && auth.currentUser == null ){
       return (
-        <>
-          <h1>You must be signed in to access this page.</h1>
-        </>
+        <Segment textAlign={'center'} color='purple'>
+          <h1 >You must be signed in to access this page.</h1>
+        </Segment>
       )
     }
     if ((isLoaded(auth)) && (auth.currentUser != null)) {

@@ -7,13 +7,6 @@ import { Card } from 'semantic-ui-react';
 
 export default function WorkoutList(props) {
 
-  const wrapCards = {
-    width: "340px",
-    height: "510px",
-    float: "left",
-    margin: '10px'
-  }
-  
   useFirestoreConnect([
     { collection: 'workouts' }
   ]);
