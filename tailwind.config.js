@@ -8,9 +8,10 @@ const labelsClasses = [
 ];
 
 module.exports = {
+  prefix: 'tw-',
   purge: {
     content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
-    //Because we made a dynamic class with the label we need to add those clases
+    //Because we made a dynamic class with the label we need to add those classes
     // to the safe list so the purge does not remove that
     safelist: [
       ...labelsClasses.map((lbl) => `bg-${lbl}-500`),

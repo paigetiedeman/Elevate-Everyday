@@ -46,6 +46,7 @@ export default function WorkoutDetail(props) {
         </Button>
       </div>
       <br />
+      <br />
     </>
   );
 }
