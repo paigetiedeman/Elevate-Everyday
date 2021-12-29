@@ -8,10 +8,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withFirestore, isLoaded } from 'react-redux-firebase';
 import { Button, Segment } from 'semantic-ui-react';
-import { getAuth } from "firebase/auth";
+import { getAuth } from 'firebase/auth';
 
 class WorkoutControl extends React.Component {
-
   constructor(props) {
     super(props);
     console.log(props);
@@ -41,85 +40,101 @@ class WorkoutControl extends React.Component {
   };
 
   handleChangingWorkout = (id) => {
-    this.props.firestore.get({collection: 'workouts', doc: id}).then((workout) => {
-      const firestoreWorkout = {
-        name: workout.get('name'),
-        duration: workout.get('duration'),
-        intensity: workout.get('intensity'),
-        tags: workout.get('tags'),
-        tagsTwo: workout.get('tagsTwo'),
-        type: workout.get('type'),
-        equipment: workout.get('equipment'),
-        details: workout.get('details'),
-        img: workout.get('img'),
-        id: workout.id
-      }
-      this.setState({selectedWorkout: firestoreWorkout});
-    });
-  }
+    this.props.firestore
+      .get({ collection: 'workouts', doc: id })
+      .then((workout) => {
+        const firestoreWorkout = {
+          name: workout.get('name'),
+          duration: workout.get('duration'),
+          intensity: workout.get('intensity'),
+          tags: workout.get('tags'),
+          tagsTwo: workout.get('tagsTwo'),
+          type: workout.get('type'),
+          equipment: workout.get('equipment'),
+          details: workout.get('details'),
+          img: workout.get('img'),
+          id: workout.id,
+        };
+        this.setState({ selectedWorkout: firestoreWorkout });
+      });
+  };
 
   handleEditClick = () => {
-    this.setState({editing: true});
-  }
+    this.setState({ editing: true });
+  };
 
   handleEditing = () => {
     this.setState({
       editing: false,
-      selectedWorkout: null
+      selectedWorkout: null,
     });
-  }
+  };
 
   handleDelete = (id) => {
-    this.props.firestore.delete({collection: 'workouts', doc: id});
-    this.setState({selectedWorkout: null});
-  }
+    this.props.firestore.delete({ collection: 'workouts', doc: id });
+    this.setState({ selectedWorkout: null });
+  };
 
   render() {
     const auth = getAuth();
 
-    if (!isLoaded(auth)){
+    if (!isLoaded(auth)) {
       return (
         <>
           <h1>Loading...</h1>
         </>
-      )
+      );
     }
 
-    if ((isLoaded(auth)) && auth.currentUser == null ){
+    if (isLoaded(auth) && auth.currentUser == null) {
       return (
-        <Segment textAlign={'center'} color='purple'>
-          <h1 >You must be signed in to access this page.</h1>
+        <Segment textAlign={'center'} color="purple">
+          <h1>You must be signed in to access this page.</h1>
         </Segment>
-      )
+      );
     }
-    if ((isLoaded(auth)) && (auth.currentUser != null)) {
+    if (isLoaded(auth) && auth.currentUser != null) {
       let currentlyVisibleState = null;
       let buttonText = null;
       if (this.state.editing) {
         currentlyVisibleState = (
-          <EditWorkout workout={this.state.selectedWorkout} onEditWorkout={this.handleEditing}/>
+          <EditWorkout
+            workout={this.state.selectedWorkout}
+            onEditWorkout={this.handleEditing}
+          />
         );
         buttonText = 'Return to Workouts';
       } else if (this.state.selectedWorkout != null) {
         currentlyVisibleState = (
-          <WorkoutDetail workout={this.state.selectedWorkout} onClickingDelete={this.handleDelete} onClickingEdit={this.handleEditClick}/>
+          <WorkoutDetail
+            workout={this.state.selectedWorkout}
+            onClickingDelete={this.handleDelete}
+            onClickingEdit={this.handleEditClick}
+          />
         );
         buttonText = 'Return to Workouts';
       } else if (this.props.formVisibleOnPage) {
-        currentlyVisibleState = <NewWorkoutForm onNewWorkoutCreation={this.handleAddingWorkout}/>;
+        currentlyVisibleState = (
+          <NewWorkoutForm onNewWorkoutCreation={this.handleAddingWorkout} />
+        );
         buttonText = 'Return to Workouts';
       } else {
-        currentlyVisibleState = <WorkoutList workoutList={this.props.mainWorkoutList} onWorkoutSelection ={this.handleChangingWorkout} />
+        currentlyVisibleState = (
+          <WorkoutList
+            workoutList={this.props.mainWorkoutList}
+            onWorkoutSelection={this.handleChangingWorkout}
+          />
+        );
         buttonText = 'Add a New Workout';
       }
       return (
         <>
           {currentlyVisibleState}
           <br />
-          <Segment textAlign={'center'} color='purple'>
-          <Button color="teal" onClick={this.handleClick}>
-            {buttonText}
-          </Button>
+          <Segment textAlign={'center'} color="purple">
+            <Button color="teal" onClick={this.handleClick}>
+              {buttonText}
+            </Button>
           </Segment>
           <br />
         </>
@@ -127,7 +142,6 @@ class WorkoutControl extends React.Component {
     }
   }
 }
-
 
 WorkoutControl.propTypes = {
   mainWorkoutList: PropTypes.object,

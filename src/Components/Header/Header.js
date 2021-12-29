@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar } from 'react-bootstrap';
-import './Header.css'
+import { Navbar, NavDropdown, Nav } from 'react-bootstrap';
+import './Header.css';
 
 const Header = () => {
-
   const navStyle = {
     backgroundColor: '#008080',
     color: 'white',
@@ -17,33 +16,47 @@ const Header = () => {
     color: 'white',
     padding: '6px',
     fontSize: '18px',
-  }
+  };
 
   return (
     <Navbar collapseOnSelect expand="lg" className="navbar" style={navStyle}>
-      <Navbar.Brand className="elevate" style={{color: 'white'}}>Elevate Everyday</Navbar.Brand>
+      <Navbar.Brand className="elevate" style={{ color: 'white' }}>
+        Elevate Everyday
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Link className="link" to="/" style={linkStyle}>
-          Workouts
-        </Link>
-        <Link className="link" to="/blog" style={linkStyle}>
-          Blog
-        </Link>
-        <Link className="link" to="/calendar" style={linkStyle}>
-          Calendar
-        </Link>
-        <Link className="link" to="/signup" style={linkStyle}>
-          Sign Up
-        </Link>
-        <Link className="link" to="/login" style={linkStyle}>
-          Login
-        </Link>
-        <Link className="link" to="/profile" style={linkStyle}>
-          Profile
-        </Link>
+        <NavDropdown.Item>
+          <Nav.Link as={Link} className="link" to="/" style={linkStyle}>
+            Workouts
+          </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item>
+          <Nav.Link as={Link} className="link" to="/blog" style={linkStyle}>
+            Blog
+          </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item>
+          <Nav.Link as={Link} className="link" to="/calendar" style={linkStyle}>
+            Calendar
+          </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item>
+          <Nav.Link as={Link} className="link" to="/signup" style={linkStyle}>
+            Sign Up
+          </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item>
+          <Nav.Link as={Link} className="link" to="/login" style={linkStyle}>
+            Login
+          </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item>
+          <Nav.Link as={Link} className="link" to="/profile" style={linkStyle}>
+            Profile
+          </Nav.Link>
+        </NavDropdown.Item>
         {/* 
-              <Link className="nav-link disabled" to="#">Meal Plan</Link>
+              <Nav.Link as={Link} className="nav-link disabled" to="#">Meal Plan</Nav.Link>
              */}
       </Navbar.Collapse>
     </Navbar>
