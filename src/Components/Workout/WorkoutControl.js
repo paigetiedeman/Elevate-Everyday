@@ -121,6 +121,7 @@ class WorkoutControl extends React.Component {
             {buttonText}
           </Button>
           </Segment>
+          <br />
         </>
       );
     }

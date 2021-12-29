@@ -12,6 +12,7 @@ import { Container } from 'react-bootstrap';
 
 function App() {
   return (
+    <>
     <Router>
       <Header />
       <Container className="align-items-center">
@@ -35,9 +36,10 @@ function App() {
               <WorkoutControl />
             </Route>
           </Switch>
-      <Footer />
           </Container>
     </Router>
+      <Footer />
+      </>
   );
 }
 
