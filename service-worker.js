@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Elevate-Everyday/precache-manifest.d783d4fd036f30608b77d62e7dfac018.js"
+  "/Elevate-Everyday/precache-manifest.840dd56ca425f04d3f86bdf40256b4c3.js"
 );
 
 self.addEventListener('message', (event) => {
