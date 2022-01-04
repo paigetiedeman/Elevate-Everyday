@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { getAuth, signOut } from 'firebase/auth';
+import { getAuth, signOut, currentUser } from 'firebase/auth';
 import { Container } from 'react-bootstrap';
 
 export default function Profile() {
-  // const email = event.target.email.value;
 
+  
   function doSignOut(event) {
     const auth = getAuth();
     console.log(auth);
@@ -28,7 +28,7 @@ export default function Profile() {
         <Card>
           <Card.Body>
             <h2 className="text-center mb-6">Profile</h2>
-            <strong>Email:</strong>
+            <strong>Email: </strong>
           </Card.Body>
         </Card>
         <div className="w-100 text-center mt-2">
